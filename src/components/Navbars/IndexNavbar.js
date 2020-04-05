@@ -71,7 +71,7 @@ function IndexNavbar() {
             target="_blank"
             title="Coded by Creative Tim"
           >
-            Paper Kit React
+            Simple Page of Sparks
           </NavbarBrand>
           <button
             aria-expanded={navbarCollapse}
@@ -91,7 +91,7 @@ function IndexNavbar() {
           isOpen={navbarCollapse}
         >
           <Nav navbar>
-            <NavItem>
+            {/* <NavItem>
               <NavLink
                 data-placement="bottom"
                 href="https://twitter.com/CreativeTim?ref=creativetim"
@@ -101,8 +101,8 @@ function IndexNavbar() {
                 <i className="fa fa-twitter" />
                 <p className="d-lg-none">Twitter</p>
               </NavLink>
-            </NavItem>
-            <NavItem>
+            </NavItem> */}
+            {/* <NavItem>
               <NavLink
                 data-placement="bottom"
                 href="https://www.facebook.com/CreativeTim?ref=creativetim"
@@ -112,13 +112,13 @@ function IndexNavbar() {
                 <i className="fa fa-facebook-square" />
                 <p className="d-lg-none">Facebook</p>
               </NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                href="https://www.instagram.com/karthshen/"
                 target="_blank"
-                title="Follow us on Instagram"
+                title="Follow me on Instagram!"
               >
                 <i className="fa fa-instagram" />
                 <p className="d-lg-none">Instagram</p>
@@ -127,9 +127,9 @@ function IndexNavbar() {
             <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="https://www.github.com/CreativeTimOfficial/paper-kit-react?ref=creativetim"
+                href="https://github.com/karthshen/"
                 target="_blank"
-                title="Star on GitHub"
+                title="Check out my Github!"
               >
                 <i className="fa fa-github" />
                 <p className="d-lg-none">GitHub</p>
@@ -137,13 +137,13 @@ function IndexNavbar() {
             </NavItem>
             <NavItem>
               <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
+                href="http://karthshen.github.io/"
                 target="_blank"
               >
-                <i className="nc-icon nc-book-bookmark" /> Documentation
+                <i className="nc-icon nc-book-bookmark" /> Another Simple Page
               </NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <Button
                 className="btn-round"
                 color="danger"
@@ -153,7 +153,7 @@ function IndexNavbar() {
               >
                 Upgrade to Pro
               </Button>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         </Collapse>
       </Container>
