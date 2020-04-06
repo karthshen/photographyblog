@@ -22,6 +22,8 @@ import React from "react";
 // reactstrap components
 import { Container, Button, Row, Col } from "reactstrap";
 
+import history from '../Routes/history'
+
 function IndexHeader() {
   return (
     <>
@@ -64,6 +66,9 @@ function IndexHeader() {
               size="lg"
               color="neutral"
               type="button"
+              onClick={() => {
+                history.push("/portrait-page");
+              }}
             >
               In
             </Button>
