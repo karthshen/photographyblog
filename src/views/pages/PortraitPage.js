@@ -52,7 +52,7 @@ function portraitPage() {
         <>
             <IndexNavbar />
             <LandingPageHeader />
-            <DemoFooter />
+            {/* <DemoFooter /> */}
         </>
     );
 }
