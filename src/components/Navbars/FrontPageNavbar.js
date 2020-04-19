@@ -31,7 +31,7 @@ import {
   Container
 } from "reactstrap";
 
-function IndexNavbar() {
+function FrontPageNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -161,4 +161,4 @@ function IndexNavbar() {
   );
 }
 
-export default IndexNavbar;
+export default FrontPageNavbar;

@@ -24,7 +24,7 @@ import { Container, Button, Row, Col } from "reactstrap";
 
 import history from '../Routes/history'
 
-function IndexHeader() {
+function FrontPageHeader() {
   return (
     <>
       <div
@@ -67,7 +67,7 @@ function IndexHeader() {
               color="neutral"
               type="button"
               onClick={() => {
-                history.push("/portrait-page");
+                history.push("/inPage");
               }}
             >
               In
@@ -99,4 +99,4 @@ function IndexHeader() {
   );
 }
 
-export default IndexHeader;
+export default FrontPageHeader;

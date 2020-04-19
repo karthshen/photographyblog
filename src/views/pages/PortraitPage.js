@@ -38,7 +38,7 @@ import {
 // core components
 import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
-import IndexNavbar from "components/Navbars/IndexNavbar";
+import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
 
 function portraitPage() {
     document.documentElement.classList.remove("nav-open");
@@ -50,7 +50,7 @@ function portraitPage() {
     // });
     return (
         <>
-            <IndexNavbar />
+            <FrontPageNavbar />
             <LandingPageHeader />
             {/* <DemoFooter /> */}
         </>

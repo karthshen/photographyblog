@@ -21,8 +21,8 @@ import React from "react";
 // reactstrap components
 
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import IndexHeader from "components/Headers/IndexHeader.js";
+import FrontPageNavbar from "components/Navbars/FrontPageNavbar.js";
+import FrontPageHeader from "components/Headers/FrontPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 
 // index sections
@@ -50,8 +50,8 @@ function Index() {
   });
   return (
     <>
-      <IndexNavbar />
-      <IndexHeader />
+      <FrontPageNavbar />
+      <FrontPageHeader />
       <div className="main">
         {/*<SectionButtons />
          <SectionNavbars />
