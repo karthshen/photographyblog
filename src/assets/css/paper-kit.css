@@ -1312,7 +1312,6 @@
   padding: 11px 30px; }
   .btn-lg.btn-simple {
     padding: 13px 30px; }
-
 .btn-sm {
   font-size: 12px;
   padding: 4px 10px; }
@@ -1356,7 +1355,7 @@
   padding: 8px !important; }
 
 .btn-round {
-  border-radius: 30px; }
+  border-radius: 90px; }
 
 .btn.btn-link:focus {
   box-shadow: none !important;
@@ -6459,3 +6458,8 @@ td.rdtYear:hover {
   border-bottom-color: #fff; }
 
 /*# sourceMappingURL=paper-kit.css.map */
+h2.imageSubtitle {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
