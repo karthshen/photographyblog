@@ -67,7 +67,7 @@ function FrontPageHeader() {
               color="neutral"
               type="button"
               onClick={() => {
-                history.push("/inPage");
+                history.push("/Summary-Page");
               }}
             >
               In
