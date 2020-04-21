@@ -46,13 +46,13 @@ function SummaryPageHeader() {
                 data-parallax={true}
                 ref={pageHeader}
                 style={{
-                    backgroundImage: "url(" + require("assets/img/portrait-page-background-dim.jpg") + ")",
+                    backgroundImage: "url(" + require("assets/img/front-page-background.jpg") + ")",
                 }}
             >
 
-                {/* <div style={{
+                <div style={{
                     pointerEvents: 'none'
-                }} className="filter" /> */}
+                }} className="filter" />
 
                 {/* <Container>
                     <div className="motto text-center">
