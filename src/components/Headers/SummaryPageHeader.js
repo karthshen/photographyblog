@@ -46,7 +46,7 @@ function SummaryPageHeader() {
                 data-parallax={true}
                 ref={pageHeader}
                 style={{
-                    backgroundImage: "url(" + require("assets/img/front-page-background.jpg") + ")",
+                    backgroundImage: "url(" + require("assets/img/front-page-background-sm.jpg") + ")",
                 }}
             >
 
