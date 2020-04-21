@@ -68,6 +68,7 @@ function FrontPageHeader() {
               type="button"
               onClick={() => {
                 history.push("/Summary-Page");
+                //history.push("/Portrait-Page");
               }}
             >
               In

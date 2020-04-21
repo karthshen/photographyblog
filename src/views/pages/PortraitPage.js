@@ -36,9 +36,9 @@ import {
 } from "reactstrap";
 
 // core components
-import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
+import SummaryPageHeader from "components/Headers/SummaryPageHeader";
 
 function portraitPage() {
     document.documentElement.classList.remove("nav-open");
@@ -51,7 +51,7 @@ function portraitPage() {
     return (
         <>
             <FrontPageNavbar />
-            <LandingPageHeader />
+            <SummaryPageHeader />
             {/* <DemoFooter /> */}
         </>
     );
