@@ -30,6 +30,8 @@ import {
   Nav,
   Container
 } from "reactstrap";
+//import custom components
+import history from '../Routes/history'
 
 function FrontPageNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -67,9 +69,9 @@ function FrontPageNavbar() {
         <div className="navbar-translate">
           <NavbarBrand
             data-placement="bottom"
-            href="/index"
-            target="_blank"
-            title="Coded by Creative Tim"
+            href={"/index"}
+            target="_self"
+            title="Simple Page of Sparks"
           >
             Simple Page of Sparks
           </NavbarBrand>

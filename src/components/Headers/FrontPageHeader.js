@@ -31,7 +31,7 @@ function FrontPageHeader() {
         className="page-header section-dark"
         style={{
           backgroundImage:
-            "url(" + require("assets/img/front-page-background.jpg") + ")"
+            "url(" + require("assets/img/front-page-background-sm.jpg") + ")"
         }}
       >
         <div className="filter" />

@@ -97,11 +97,11 @@ function summaryPage() {
         //display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        margin: "36px",
+        margin: "22px",
         position: "relative",
         //flexWrap: "wrap",
-        top: 20,
-        width: '400px',
+        top: -40,
+        width: '350px',
     };
     return (
         <>
@@ -114,12 +114,12 @@ function summaryPage() {
                     justifyContent: "center",
                     //alignItems: "center",
                     //margin: "36px",
-                    //position: "relative",
+                    position: "relative",
                     flexWrap: 'wrap',
-                    //backgroundImage: "url(" + require("assets/img/portrait-page-background-dim.jpg") + ")",
-                    background: 'grey'
+                    background: 'white',
                 }
-            }>
+            }
+                className="section summary-section">
                 <div
                     style={pictureStyle}
                 >
@@ -145,7 +145,7 @@ function summaryPage() {
                 </div>
             </div>
             {/* Footer */}
-            <DemoFooter />
+            {/* <DemoFooter /> */}
         </>
     );
 }

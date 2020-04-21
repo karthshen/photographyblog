@@ -34,7 +34,8 @@
         min-height: 40vh !important;
     }
     &.page-header-xxs{
-        min-height: 10vh !important;
+        min-height: 10vh;
+        max-height: 200px;
     }
 
     &.section-dark{
@@ -54,6 +55,11 @@
 .landing-section{
     padding: 100px 0;
     z-index: 1;
+}
+.summary-section{
+    padding: 0;
+    z-index: 1;
+    min-height: 100vh !important;
 }
 .section-buttons{
     z-index: 1;

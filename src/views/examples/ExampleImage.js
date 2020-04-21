@@ -25,7 +25,7 @@ const ExampleImage = ({ photos, title, direction }) => {
                     top: 20
                 }}
             >
-                <Button className="btn-round" color="white" size="lg" outline
+                <Button className="btn-round" color="default" size="lg" outline
                 >{title}</Button>
             </div>
         </div >
