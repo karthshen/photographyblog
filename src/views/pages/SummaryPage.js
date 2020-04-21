@@ -47,6 +47,8 @@ import portraitImgCover from '../../assets/img/portraits/cover.jpg'
 import landscapeImgCover from '../../assets/img/landsacpe/cover.jpg'
 import streetImgCover from '../../assets/img/streets/cover.jpg'
 import starImgCover from '../../assets/img/stars/cover.jpg'
+import urbanImgCover from '../../assets/img/urban/cover.jpg'
+import weddingImgCover from '../../assets/img/weddings/cover.jpg'
 
 
 function summaryPage() {
@@ -93,6 +95,24 @@ function summaryPage() {
         }
     ];
 
+    const urbanCover = [
+        {
+            src: urbanImgCover,
+            //sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
+            width: 2,
+            height: 3
+        }
+    ]
+
+    const weddingCover = [
+        {
+            src: weddingImgCover,
+            //sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
+            width: 2,
+            height: 3
+        }
+    ]
+
     const pictureStyle = {
         //display: "flex",
         justifyContent: "center",
@@ -100,8 +120,9 @@ function summaryPage() {
         margin: "22px",
         position: "relative",
         //flexWrap: "wrap",
-        top: -40,
-        width: '350px',
+        top: -60,
+        minWidth: '350px',
+        maxWidth: '500px',
     };
     return (
         <>
@@ -117,6 +138,10 @@ function summaryPage() {
                     position: "relative",
                     flexWrap: 'wrap',
                     background: 'white',
+                    alignSelf: 'center',
+                    maxWidth: '1400px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto'
                 }
             }
                 className="section summary-section">
@@ -142,6 +167,18 @@ function summaryPage() {
                     style={pictureStyle}
                 >
                     <ExampleImage title={"Stars"} photos={starCover} />
+                </div>
+
+                <div
+                    style={pictureStyle}
+                >
+                    <ExampleImage title={"Urban"} photos={urbanCover} />
+                </div>
+
+                <div
+                    style={pictureStyle}
+                >
+                    <ExampleImage title={"Wedding"} photos={weddingCover} />
                 </div>
             </div>
             {/* Footer */}
