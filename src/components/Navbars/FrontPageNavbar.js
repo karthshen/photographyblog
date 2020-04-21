@@ -30,8 +30,10 @@ import {
   Nav,
   Container
 } from "reactstrap";
+//import custom components
+import history from '../Routes/history'
 
-function IndexNavbar() {
+function FrontPageNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -67,9 +69,9 @@ function IndexNavbar() {
         <div className="navbar-translate">
           <NavbarBrand
             data-placement="bottom"
-            href="/index"
-            target="_blank"
-            title="Coded by Creative Tim"
+            href={"/index"}
+            target="_self"
+            title="Simple Page of Sparks"
           >
             Simple Page of Sparks
           </NavbarBrand>
@@ -161,4 +163,4 @@ function IndexNavbar() {
   );
 }
 
-export default IndexNavbar;
+export default FrontPageNavbar;

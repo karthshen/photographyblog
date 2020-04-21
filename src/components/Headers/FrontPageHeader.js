@@ -24,14 +24,14 @@ import { Container, Button, Row, Col } from "reactstrap";
 
 import history from '../Routes/history'
 
-function IndexHeader() {
+function FrontPageHeader() {
   return (
     <>
       <div
         className="page-header section-dark"
         style={{
           backgroundImage:
-            "url(" + require("assets/img/front-page-background.jpg") + ")"
+            "url(" + require("assets/img/front-page-background-sm.jpg") + ")"
         }}
       >
         <div className="filter" />
@@ -67,7 +67,7 @@ function IndexHeader() {
               color="neutral"
               type="button"
               onClick={() => {
-                history.push("/portrait-page");
+                history.push("/Summary-Page");
               }}
             >
               In
@@ -99,4 +99,4 @@ function IndexHeader() {
   );
 }
 
-export default IndexHeader;
+export default FrontPageHeader;
