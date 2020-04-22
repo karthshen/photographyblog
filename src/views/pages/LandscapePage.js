@@ -43,7 +43,7 @@ import GridImageLightbox from "components/Images/GridImageLightbox";
 import { importImages, shuffle, getGridStyle, updateWindowDimensions } from "components/Helpers/Utility"
 
 
-class PortraitPage extends Component {
+class LandscapePage extends Component {
 
     state = {
         images: [],
@@ -65,9 +65,9 @@ class PortraitPage extends Component {
     iumportAllImages() {
         // This cannot be encapsulated because the nature of Javascript. 
         var arr = [];
-        arr = arr.concat(importImages(require.context('../../assets/img/portraits/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
-        arr = arr.concat(importImages(require.context('../../assets/img/portraits/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
-        arr = arr.concat(importImages(require.context('../../assets/img/portraits/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
+        arr = arr.concat(importImages(require.context('../../assets/img/landscapes/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
+        arr = arr.concat(importImages(require.context('../../assets/img/landscapes/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
+        arr = arr.concat(importImages(require.context('../../assets/img/landscapes/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
         arr = shuffle(arr);
         return arr;
     }
@@ -110,4 +110,4 @@ class PortraitPage extends Component {
     }
 }
 
-export default PortraitPage
+export default LandscapePage
