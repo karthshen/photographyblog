@@ -16,8 +16,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
-
 // reactstrap components
 
 // core components
@@ -40,20 +38,40 @@ import SectionLogin from "views/index-sections/SectionLogin.js";
 import SectionExamples from "views/index-sections/SectionExamples.js";
 import SectionDownload from "views/index-sections/SectionDownload.js";
 
-function Index() {
-  document.documentElement.classList.remove("nav-open");
-  React.useEffect(() => {
-    document.body.classList.add("index");
-    return function cleanup() {
-      document.body.classList.remove("index");
-    };
-  });
-  return (
-    <>
-      <FrontPageNavbar />
-      <FrontPageHeader />
-      <div className="main">
-        {/*<SectionButtons />
+import React, { Component } from 'react'
+
+class FrontPage extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+
+    }
+  }
+
+  componentDidMount() {
+    document.documentElement.classList.remove("nav-open");
+  }
+
+  componentDidUpdate() {
+    React.useEffect(() => {
+      document.body.classList.add("index");
+      return function cleanup() {
+        document.body.classList.remove("index");
+      };
+    });
+
+  }
+
+
+  render() {
+    return (
+      <>
+        <FrontPageNavbar />
+        <FrontPageHeader />
+        <div className="main">
+          {/*<SectionButtons />
          <SectionNavbars />
         <SectionNavigation />
         <SectionProgress />
@@ -67,9 +85,10 @@ function Index() {
         <SectionExamples />
         <SectionDownload />
         <DemoFooter /> */}
-      </div>
-    </>
-  );
+        </div>
+      </>
+    )
+  }
 }
 
-export default Index;
+export default FrontPage;

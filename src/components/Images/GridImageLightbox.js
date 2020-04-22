@@ -20,7 +20,7 @@ function GridImageLightbox({ photos }) {
     return (
         <div>
             {/* <h2>Using with a Lightbox component</h2> */}
-            <Gallery photos={photos} onClick={openLightbox} />
+            < Gallery photos={photos} onClick={openLightbox} direction="row" />
             <ModalGateway>
                 {viewerIsOpen ? (
                     <Modal onClose={closeLightbox}>
@@ -35,7 +35,7 @@ function GridImageLightbox({ photos }) {
                     </Modal>
                 ) : null}
             </ModalGateway>
-        </div>
+        </div >
     );
 }
 

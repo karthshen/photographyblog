@@ -16,8 +16,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
-
 // reactstrap components
 import {
     Button,
@@ -50,6 +48,8 @@ import starImgCover from '../../assets/img/stars/cover.jpg'
 import urbanImgCover from '../../assets/img/urban/cover.jpg'
 import weddingImgCover from '../../assets/img/weddings/cover.jpg'
 import Routes from "components/Routes/Routes";
+
+import React, { Component } from 'react'
 
 const portraitCover = [
     {
@@ -117,76 +117,92 @@ const pictureStyle = {
     maxWidth: '500px',
 };
 
-function summaryPage() {
-    document.documentElement.classList.remove("nav-open");
-    // React.useEffect(() => {
-    //     document.body.classList.add("summary-page");
-    //     return function cleanup() {
-    //         document.body.classList.remove("summary-page");
-    //     };
-    // });
 
-    return (
-        <>
-            <FrontPageNavbar />
-            <SummaryPageHeader />
+class SummaryPage extends Component {
+    constructor(props) {
+        super(props)
 
-            <div style={
-                {
-                    display: "flex",
-                    justifyContent: "center",
-                    //alignItems: "center",
-                    //margin: "36px",
-                    position: "relative",
-                    flexWrap: 'wrap',
-                    background: 'white',
-                    alignSelf: 'center',
-                    maxWidth: '1400px',
-                    marginLeft: 'auto',
-                    marginRight: 'auto'
+        this.state = {
+
+        }
+    }
+
+    componentDidMount() {
+        document.documentElement.classList.remove("nav-open");
+    }
+
+    componentDidUpdate() {
+        // React.useEffect(() => {
+        //     document.body.classList.add("summary-page");
+        //     return function cleanup() {
+        //         document.body.classList.remove("summary-page");
+        //     };
+        // });
+    }
+
+    render() {
+        return (
+            <>
+                <FrontPageNavbar />
+                <SummaryPageHeader />
+
+                <div style={
+                    {
+                        display: "flex",
+                        justifyContent: "center",
+                        //alignItems: "center",
+                        //margin: "36px",
+                        position: "relative",
+                        flexWrap: 'wrap',
+                        background: 'white',
+                        alignSelf: 'center',
+                        maxWidth: '1400px',
+                        marginLeft: 'auto',
+                        marginRight: 'auto'
+                    }
                 }
-            }
-                className="section summary-section">
-                <div
-                    style={pictureStyle}
-                >
-                    <SingleImage title={"Portrait"} photos={portraitCover} destination={"/Portrait-Page"} />
-                </div>
+                    className="section summary-section">
+                    <div
+                        style={pictureStyle}
+                    >
+                        <SingleImage title={"Portrait"} photos={portraitCover} destination={"/Portrait-Page"} />
+                    </div>
 
-                <div
-                    style={pictureStyle}
-                >
-                    <SingleImage title={"Landscape"} photos={landscapeCover} />
-                </div>
+                    <div
+                        style={pictureStyle}
+                    >
+                        <SingleImage title={"Landscape"} photos={landscapeCover} />
+                    </div>
 
-                <div
-                    style={pictureStyle}
-                >
-                    <SingleImage title={"Streets"} photos={streetCover} />
-                </div>
+                    <div
+                        style={pictureStyle}
+                    >
+                        <SingleImage title={"Streets"} photos={streetCover} />
+                    </div>
 
-                <div
-                    style={pictureStyle}
-                >
-                    <SingleImage title={"Stars"} photos={starCover} />
-                </div>
+                    <div
+                        style={pictureStyle}
+                    >
+                        <SingleImage title={"Stars"} photos={starCover} />
+                    </div>
 
-                <div
-                    style={pictureStyle}
-                >
-                    <SingleImage title={"Urban"} photos={urbanCover} />
-                </div>
+                    <div
+                        style={pictureStyle}
+                    >
+                        <SingleImage title={"Urban"} photos={urbanCover} />
+                    </div>
 
-                <div
-                    style={pictureStyle}
-                >
-                    <SingleImage title={"Wedding"} photos={weddingCover} />
+                    <div
+                        style={pictureStyle}
+                    >
+                        <SingleImage title={"Wedding"} photos={weddingCover} />
+                    </div>
                 </div>
-            </div>
-            {/* Footer */}
-            {/* <DemoFooter /> */}
-        </>
-    );
+                {/* Footer */}
+                {/* <DemoFooter /> */}
+            </>
+        )
+    }
 }
 
-export default summaryPage;
+export default SummaryPage

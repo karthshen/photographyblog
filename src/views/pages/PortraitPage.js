@@ -49,10 +49,10 @@ const pictureStyle = {
     margin: "12px",
     position: "relative",
     //flexWrap: "wrap",
-    maxWidth: '90vh',
+    maxWidth: '90vw',
     marginLeft: 'auto',
     marginRight: 'auto',
-    top: 20,
+    top: 10,
 };
 
 class PortraitPage extends Component {
@@ -61,32 +61,55 @@ class PortraitPage extends Component {
         images: []
     };
 
-    importImages = (r) => {
+    importImages = (r, orientation) => {
         let images = [];
         let i = 0;
-        this.setState({ images: [] });
+        var width = 1, height = 1;
+        switch (orientation) {
+            case 'vertical':
+                { width = 2; height = 3; }
+                break;
+            case 'horizontal':
+                { width = 3; height = 2; }
+                break;
+            case 'square':
+                { width = 1; height = 1; }
+                break;
+            default:
+        }
 
         r.keys().map((item) => {
-            let img = new Image();
-            img.src = r(item);
 
             images[i] = {
                 src: r(item),
-                width: img.naturalWidth,
-                height: img.naturalHeight
+                width: width,
+                height: height
             };
-
-            if (images[i].width === 0) {
-                console.error("We are fucked");
-            }
-
-            // console.log("Set dimesions for ", r(item), img.width, img.height);
-            // console.log(images[i]);
-
             i++;
         });
         return images;
     }
+
+    shuffle = (arr) => {
+
+        var currentIndex = arr.length;
+        var temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = arr[currentIndex];
+            arr[currentIndex] = arr[randomIndex];
+            arr[randomIndex] = temporaryValue;
+        }
+
+        return arr;
+
+    };
 
 
     constructor(props) {
@@ -97,7 +120,12 @@ class PortraitPage extends Component {
     }
 
     componentDidMount() {
-        this.setState({ images: this.importImages(require.context('../../assets/img/portraits/lowerRes/', false, /\.(png|jpe?g|svg)$/)) });
+        var arr = [];
+        arr = arr.concat(this.importImages(require.context('../../assets/img/portraits/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
+        arr = arr.concat(this.importImages(require.context('../../assets/img/portraits/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
+        arr = arr.concat(this.importImages(require.context('../../assets/img/portraits/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
+        arr = this.shuffle(arr);
+        this.setState({ images: arr });
     }
 
     render() {
