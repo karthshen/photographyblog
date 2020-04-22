@@ -41,24 +41,13 @@ import SummaryPageHeader from "components/Headers/SummaryPageHeader";
 import React, { Component } from 'react'
 import GridImageLightbox from "components/Images/GridImageLightbox";
 
-
-const pictureStyle = {
-    //display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: "12px",
-    position: "relative",
-    //flexWrap: "wrap",
-    maxWidth: '90vw',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    top: 10,
-};
-
 class PortraitPage extends Component {
 
     state = {
-        images: []
+        images: [],
+        window_width: 0,
+        window_height: 0,
+        window_maxWidth: ''
     };
 
     importImages = (r, orientation) => {
@@ -111,12 +100,28 @@ class PortraitPage extends Component {
 
     };
 
+    updateWindowDimensions() {
+        this.state.window_width = window.outerWidth;
+        this.state.window_height = window.outerHeight;
+    }
+
+    determineBorder() {
+        if (this.state.window_height > this.state.window_width) {
+            this.setState({ window_maxWidth: '85vw' });
+            //console.log(this.state.window_width, this.state.window.window_height);
+        } else {
+            this.setState({ window_maxWidth: '60vw' });
+            //console.log(this.state.window_width, this.state.window.window_height);
+        }
+    }
+
 
     constructor(props) {
         super(props)
         // this.state = {
         //     images: this.importImages(require.context('../../assets/img/portraits/lowerRes/', false, /\.(png|jpe?g|svg)$/))
         // }
+        this.updateWindowDimensions();
     }
 
     componentDidMount() {
@@ -126,9 +131,31 @@ class PortraitPage extends Component {
         arr = arr.concat(this.importImages(require.context('../../assets/img/portraits/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
         arr = this.shuffle(arr);
         this.setState({ images: arr });
+
+        this.determineBorder();
     }
 
+
     render() {
+        var pictureStyle = {
+            //display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "12px",
+            position: "relative",
+            //flexWrap: "wrap",
+            maxWidth: this.state.window_maxWidth,
+            //maxWidth: '1400px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            top: 10,
+        };
+
+        if (this.state.window_height != window.outerHeight || this.state.window_width != window.outerWidth) {
+            this.setState({ window_height: window.outerHeight, window_width: window.outerWidth });
+            this.determineBorder();
+        }
+
         return (
             <>
                 <FrontPageNavbar />
