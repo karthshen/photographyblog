@@ -43,7 +43,7 @@ import GridImageLightbox from "components/Images/GridImageLightbox";
 import { importImages, shuffle, getGridStyle, updateWindowDimensions } from "components/Helpers/Utility"
 
 
-class PortraitPage extends Component {
+class StarPage extends Component {
 
     state = {
         images: [],
@@ -62,12 +62,14 @@ class PortraitPage extends Component {
         }
     }
 
-    iumportAllImages() {
+    importAllImages() {
         // This cannot be encapsulated because the nature of Javascript. 
         var arr = [];
-        arr = arr.concat(importImages(require.context('../../assets/img/portraits/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
-        arr = arr.concat(importImages(require.context('../../assets/img/portraits/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
-        arr = arr.concat(importImages(require.context('../../assets/img/portraits/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
+        arr = arr.concat(importImages(require.context('../../assets/img/stars/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
+        arr = arr.concat(importImages(require.context('../../assets/img/stars/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
+        arr = arr.concat(importImages(require.context('../../assets/img/stars/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
+        arr = arr.concat(importImages(require.context('../../assets/img/stars/lowerRes/ultrawide/', false, /\.(png|jpe?g|svg)$/), "ultrawide"));
+
         arr = shuffle(arr);
         return arr;
     }
@@ -84,7 +86,7 @@ class PortraitPage extends Component {
 
 
     componentDidMount() {
-        this.setState({ images: this.iumportAllImages("") });
+        this.setState({ images: this.importAllImages("") });
         this.determineBorder();
     }
 
@@ -110,4 +112,4 @@ class PortraitPage extends Component {
     }
 }
 
-export default PortraitPage
+export default StarPage

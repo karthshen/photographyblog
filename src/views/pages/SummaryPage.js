@@ -42,7 +42,7 @@ import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
 
 // Pictures
 import portraitImgCover from '../../assets/img/portraits/cover.jpg'
-import landscapeImgCover from '../../assets/img/landsacpe/cover.jpg'
+import landscapeImgCover from '../../assets/img/landscapes/cover.jpg'
 import streetImgCover from '../../assets/img/streets/cover.jpg'
 import starImgCover from '../../assets/img/stars/cover.jpg'
 import urbanImgCover from '../../assets/img/urban/cover.jpg'
@@ -171,7 +171,7 @@ class SummaryPage extends Component {
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Landscape"} photos={landscapeCover} />
+                        <SingleImage title={"Landscape"} photos={landscapeCover} destination={"/Landscape-Page"} />
                     </div>
 
                     <div
@@ -183,7 +183,7 @@ class SummaryPage extends Component {
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Stars"} photos={starCover} />
+                        <SingleImage title={"Stars"} photos={starCover} destination={"/Star-Page"} />
                     </div>
 
                     <div
