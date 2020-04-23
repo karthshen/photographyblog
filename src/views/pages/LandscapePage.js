@@ -40,7 +40,7 @@ import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
 import SummaryPageHeader from "components/Headers/SummaryPageHeader";
 import React, { Component } from 'react'
 import GridImageLightbox from "components/Images/GridImageLightbox";
-import { importImages, shuffle, getGridStyle, updateWindowDimensions } from "components/Helpers/Utility"
+import * as Utility from "components/Helpers/Utility"
 
 
 class LandscapePage extends Component {
@@ -54,10 +54,10 @@ class LandscapePage extends Component {
 
     determineBorder() {
         if (this.state.window_height > this.state.window_width) {
-            this.setState({ window_maxWidth: '85vw' });
+            this.setState({ window_maxWidth: Utility.VERTICAL_MAXWIDTH });
             //console.log(this.state.window_width, this.state.window.window_height);
         } else {
-            this.setState({ window_maxWidth: '70vw' });
+            this.setState({ window_maxWidth: Utility.HORIZONTAL_MAXWIDTH });
             //console.log(this.state.window_width, this.state.window.window_height);
         }
     }
@@ -65,10 +65,12 @@ class LandscapePage extends Component {
     iumportAllImages() {
         // This cannot be encapsulated because the nature of Javascript. 
         var arr = [];
-        arr = arr.concat(importImages(require.context('../../assets/img/landscapes/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
-        arr = arr.concat(importImages(require.context('../../assets/img/landscapes/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
-        arr = arr.concat(importImages(require.context('../../assets/img/landscapes/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
-        arr = shuffle(arr);
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/landscapes/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/landscapes/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/landscapes/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/landscapes/lowerRes/custom/', false, /\.(png|jpe?g|svg)$/), "custom", 2600, 1500));
+
+        arr = Utility.shuffle(arr);
         return arr;
     }
 
@@ -78,7 +80,7 @@ class LandscapePage extends Component {
         // this.state = {
         //     images: this.importImages(require.context('../../assets/img/portraits/lowerRes/', false, /\.(png|jpe?g|svg)$/))
         // }
-        updateWindowDimensions(this.state);
+        Utility.updateWindowDimensions(this.state);
     }
 
 
@@ -101,7 +103,7 @@ class LandscapePage extends Component {
             <>
                 <FrontPageNavbar />
                 <SummaryPageHeader />
-                <div style={getGridStyle(this.state.window_maxWidth)}>
+                <div style={Utility.getGridStyle(this.state.window_maxWidth)}>
                     <GridImageLightbox photos={this.state.images} />
                 </div>
                 {/* <DemoFooter /> */}

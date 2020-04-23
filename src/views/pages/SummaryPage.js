@@ -177,7 +177,7 @@ class SummaryPage extends Component {
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Streets"} photos={streetCover} />
+                        <SingleImage title={"Streets"} photos={streetCover} destination={"/Street-Page"} />
                     </div>
 
                     <div
@@ -189,13 +189,13 @@ class SummaryPage extends Component {
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Urban"} photos={urbanCover} />
+                        <SingleImage title={"Urban"} photos={urbanCover} destination={"/Urban-Page"} />
                     </div>
 
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Wedding"} photos={weddingCover} />
+                        <SingleImage title={"Wedding"} photos={weddingCover} destination={"/Wedding-Page"} />
                     </div>
                 </div>
                 {/* Footer */}

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-export function importImages(r, orientation) {
+export const HORIZONTAL_MAXWIDTH = '60vw';
+export const VERTICAL_MAXWIDTH = '85vw';
+
+export function importImages(r, orientation, _width = 1, _height = 1) {
     let images = [];
     let i = 0;
     var width = 1, height = 1;
@@ -17,7 +20,11 @@ export function importImages(r, orientation) {
         case 'ultrawide':
             { width = 21; height = 10; }
             break;
+        case 'custom':
+            { width = _width; height = _height; }
+            break;
         default:
+            break;
     }
 
     r.keys().map((item) => {
