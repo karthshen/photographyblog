@@ -43,7 +43,7 @@ import GridImageLightbox from "components/Images/GridImageLightbox";
 import * as Utility from "components/Helpers/Utility"
 
 
-class StarPage extends Component {
+class StreetPage extends Component {
 
     state = {
         images: [],
@@ -63,10 +63,10 @@ class StarPage extends Component {
     importAllImages() {
         // This cannot be encapsulated because the nature of Javascript. 
         var arr = [];
-        arr = arr.concat(Utility.importImages(require.context('../../assets/img/stars/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
-        arr = arr.concat(Utility.importImages(require.context('../../assets/img/stars/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
-        arr = arr.concat(Utility.importImages(require.context('../../assets/img/stars/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
-        arr = arr.concat(Utility.importImages(require.context('../../assets/img/stars/lowerRes/ultrawide/', false, /\.(png|jpe?g|svg)$/), "ultrawide"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/streets/lowerRes/vertical/', false, /\.(png|jpe?g|svg)$/), "vertical"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/streets/lowerRes/horizontal/', false, /\.(png|jpe?g|svg)$/), "horizontal"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/streets/lowerRes/square/', false, /\.(png|jpe?g|svg)$/), "square"));
+        arr = arr.concat(Utility.importImages(require.context('../../assets/img/streets/lowerRes/ultrawide/', false, /\.(png|jpe?g|svg)$/), "custom", 16, 9));
 
         arr = Utility.shuffle(arr);
         return arr;
@@ -107,4 +107,4 @@ class StarPage extends Component {
     }
 }
 
-export default StarPage
+export default StreetPage
