@@ -11,20 +11,22 @@ import StreetPage from 'views/pages/StreetPage'
 import UrbanPage from 'views/pages/UrbanPage'
 import WeddingPage from 'views/pages/WeddingPage'
 
+const DEFAULT_URL = '/photographyblog/'
+
 export default class Routes extends Component {
     render() {
         return (
             <Router history={history} >
                 <Switch>
-                    <Route path="/FrontPage" exact component={FrontPage} />
-                    <Route path="/Portrait-Page" component={Portrait} />
-                    <Route path="/Summary-Page" component={SummaryPage} />
-                    <Route path="/Landscape-Page" component={LandscapePage} />
-                    <Route path="/Star-Page" component={StarPage} />
-                    <Route path="/Street-Page" component={StreetPage} />
-                    <Route path="/Urban-Page" component={UrbanPage} />
-                    <Route path="/Wedding-Page" component={WeddingPage} />
-                    <Redirect to="/FrontPage" />
+                    <Route path={DEFAULT_URL + "/FrontPage"} exact component={FrontPage} />
+                    <Route path={DEFAULT_URL + "/Portrait-Page"} component={Portrait} />
+                    <Route path={DEFAULT_URL + "/Summary-Page"} component={SummaryPage} />
+                    <Route path={DEFAULT_URL + "/Landscape-Page"} component={LandscapePage} />
+                    <Route path={DEFAULT_URL + "/Star-Page"} component={StarPage} />
+                    <Route path={DEFAULT_URL + "/Street-Page"} component={StreetPage} />
+                    <Route path={DEFAULT_URL + "/Urban-Page"} component={UrbanPage} />
+                    <Route path={DEFAULT_URL + "/Wedding-Page"} component={WeddingPage} />
+                    <Redirect to={DEFAULT_URL + "/FrontPage"} />
                 </Switch>
             </Router>
         )
