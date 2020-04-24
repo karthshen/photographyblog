@@ -23,6 +23,8 @@ import React from "react";
 import { Container, Button, Row, Col } from "reactstrap";
 
 import history from '../Routes/history'
+import Routes from "../Routes/Routes"
+import * as Utility from '../Helpers/Utility'
 
 function FrontPageHeader() {
   return (
@@ -67,7 +69,7 @@ function FrontPageHeader() {
               color="neutral"
               type="button"
               onClick={() => {
-                history.push("/Summary-Page");
+                history.push(Utility.DEFAULT_URL + "/Summary-Page");
                 //history.push("/Portrait-Page");
               }}
             >

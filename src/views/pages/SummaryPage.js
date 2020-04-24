@@ -51,6 +51,8 @@ import Routes from "components/Routes/Routes";
 
 import React, { Component } from 'react'
 
+import * as Utility from '../../components/Helpers/Utility'
+
 const portraitCover = [
     {
         src: portraitImgCover,
@@ -165,37 +167,37 @@ class SummaryPage extends Component {
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Portrait"} photos={portraitCover} destination={"/Portrait-Page"} />
+                        <SingleImage title={"Portrait"} photos={portraitCover} destination={Utility.DEFAULT_URL + "/Portrait-Page"} />
                     </div>
 
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Landscape"} photos={landscapeCover} destination={"/Landscape-Page"} />
+                        <SingleImage title={"Landscape"} photos={landscapeCover} destination={Utility.DEFAULT_URL + "/Landscape-Page"} />
                     </div>
 
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Streets"} photos={streetCover} destination={"/Street-Page"} />
+                        <SingleImage title={"Streets"} photos={streetCover} destination={Utility.DEFAULT_URL + "/Street-Page"} />
                     </div>
 
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Stars"} photos={starCover} destination={"/Star-Page"} />
+                        <SingleImage title={"Stars"} photos={starCover} destination={Utility.DEFAULT_URL + "/Star-Page"} />
                     </div>
 
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Urban"} photos={urbanCover} destination={"/Urban-Page"} />
+                        <SingleImage title={"Urban"} photos={urbanCover} destination={Utility.DEFAULT_URL + "/Urban-Page"} />
                     </div>
 
                     <div
                         style={pictureStyle}
                     >
-                        <SingleImage title={"Wedding"} photos={weddingCover} destination={"/Wedding-Page"} />
+                        <SingleImage title={"Wedding"} photos={weddingCover} destination={Utility.DEFAULT_URL + "/Wedding-Page"} />
                     </div>
                 </div>
                 {/* Footer */}

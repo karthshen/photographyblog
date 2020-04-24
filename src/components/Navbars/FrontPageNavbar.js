@@ -32,6 +32,7 @@ import {
 } from "reactstrap";
 //import custom components
 import history from '../Routes/history'
+import * as Utility from '../Helpers/Utility'
 
 function FrontPageNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -69,7 +70,7 @@ function FrontPageNavbar() {
         <div className="navbar-translate">
           <NavbarBrand
             data-placement="bottom"
-            href={"/index"}
+            href={Utility.DEFAULT_URL + "/index"}
             target="_self"
             title="Simple Page of Sparks"
           >
