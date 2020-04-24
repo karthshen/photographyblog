@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "803085f2584b7a15c38526f273e7d9fc",
+    "revision": "17ce77fa29ed803f31f0aaf033d9dfcc",
     "url": "/photographyblog/index.html"
   },
   {
-    "revision": "22d2e97cba6f501107a3",
+    "revision": "0d881415ba29d80faad6",
     "url": "/photographyblog/static/css/main.7ca1b454.chunk.css"
   },
   {
-    "revision": "638ec28ea4d6ba0df333",
-    "url": "/photographyblog/static/js/2.eeaae582.chunk.js"
+    "revision": "629daaf1477c2488478b",
+    "url": "/photographyblog/static/js/2.0979c990.chunk.js"
   },
   {
-    "revision": "22d2e97cba6f501107a3",
-    "url": "/photographyblog/static/js/main.62fd3007.chunk.js"
+    "revision": "0d881415ba29d80faad6",
+    "url": "/photographyblog/static/js/main.e34403bf.chunk.js"
   },
   {
     "revision": "9e1eee7b828f423a6bb3",
@@ -482,10 +482,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "02f2970f6705022a91c14712daeaea52",
     "url": "/photographyblog/static/media/_DSC3294_1.02f2970f.jpg"
-  },
-  {
-    "revision": "53cd43c0249662f56b3f72b73e1ae81b",
-    "url": "/photographyblog/static/media/_J3A7938.53cd43c0.jpg"
   },
   {
     "revision": "ae11d928aae96245020bb59a1910f758",
