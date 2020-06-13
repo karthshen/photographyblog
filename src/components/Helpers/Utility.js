@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export const DEFAULT_URL = '/photographyblog';
+export const DEFAULT_URL = '';
 
 export const HORIZONTAL_MAXWIDTH = '60vw';
 export const VERTICAL_MAXWIDTH = '85vw';

@@ -33,6 +33,7 @@ import {
 //import custom components
 import history from '../Routes/history'
 import * as Utility from '../Helpers/Utility'
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function FrontPageNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -105,17 +106,20 @@ function FrontPageNavbar() {
                 <p className="d-lg-none">Twitter</p>
               </NavLink>
             </NavItem> */}
-            {/* <NavItem>
+            <NavItem style={{
+              // width: '60px'
+            }}>
               <NavLink
                 data-placement="bottom"
-                href="https://www.facebook.com/CreativeTim?ref=creativetim"
-                target="_blank"
-                title="Like us on Facebook"
+                //href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                target="_self"
+                title="About Me"
+                to="/Profile-Page" tag={Link}
+
               >
-                <i className="fa fa-facebook-square" />
-                <p className="d-lg-none">Facebook</p>
+                <i className="fa nc-icon nc-badge" />
               </NavLink>
-            </NavItem> */}
+            </NavItem>
             <NavItem>
               <NavLink
                 data-placement="bottom"
@@ -143,7 +147,7 @@ function FrontPageNavbar() {
                 href="http://karthshen.github.io/"
                 target="_blank"
               >
-                <i className="nc-icon nc-book-bookmark" /> Another Simple Page
+                <i className="fa nc-icon nc-book-bookmark" /> Another Simple Page
               </NavLink>
             </NavItem>
             {/* <NavItem>
@@ -160,7 +164,7 @@ function FrontPageNavbar() {
           </Nav>
         </Collapse>
       </Container>
-    </Navbar>
+    </Navbar >
   );
 }
 
