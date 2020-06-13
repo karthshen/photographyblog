@@ -17,22 +17,6 @@
 
 */
 
-// reactstrap components
-import {
-    Button,
-    Card,
-    CardBody,
-    CardFooter,
-    CardTitle,
-    Form,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
-    Container,
-    Row,
-    Col
-} from "reactstrap";
 
 // core components
 import DemoFooter from "components/Footers/DemoFooter.js";
@@ -87,9 +71,8 @@ class StarPage extends Component {
 
 
     render() {
-        ;
 
-        if (this.state.window_height != window.outerHeight || this.state.window_width != window.outerWidth) {
+        if (this.state.window_height !== window.outerHeight || this.state.window_width !== window.outerWidth) {
             this.setState({ window_height: window.outerHeight, window_width: window.outerWidth });
             this.determineBorder();
         }
