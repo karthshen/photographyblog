@@ -10,6 +10,7 @@ import StarPage from 'views/pages/StarPage'
 import StreetPage from 'views/pages/StreetPage'
 import UrbanPage from 'views/pages/UrbanPage'
 import WeddingPage from 'views/pages/WeddingPage'
+import ProfilePage from 'views/pages/ProfilePage'
 
 import * as Utility from 'components/Helpers/Utility'
 
@@ -27,6 +28,7 @@ export default class Routes extends Component {
                     <Route path={Utility.DEFAULT_URL + "/Street-Page"} component={StreetPage} />
                     <Route path={Utility.DEFAULT_URL + "/Urban-Page"} component={UrbanPage} />
                     <Route path={Utility.DEFAULT_URL + "/Wedding-Page"} component={WeddingPage} />
+                    <Route path={Utility.DEFAULT_URL + '/Profile-Page'} component={ProfilePage} />
                     <Redirect to={Utility.DEFAULT_URL + "/FrontPage"} />
                 </Switch>
             </Router>
