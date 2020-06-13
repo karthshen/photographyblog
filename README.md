@@ -14,13 +14,15 @@ The documentation for the Paper Kit React is hosted at our [website](https://dem
 This is a on going personal photography portfolio project written in React, it uses Creative Tim's Paper Kit 2 react template.
 
 ## Get Started
-
-- Install `npm` at https://www.npmjs.com/get-npm
+- Install npm
 - `npm install`
-- `npm start` to boot up the website. Default port at 3000.
+- `npm start`
+
+
 
 ## Documentation
 The documentation for the Paper Kit React is hosted at our [website](https://demos.creative-tim.com/paper-kit-react/#/documentation/introduction?ref=pkr-github-readme).
+
 
 ### Examples
 
@@ -53,9 +55,11 @@ Once you download the archive, you will be able find a tutorial page inside it e
 - Support: <https://www.creative-tim.com/contact-us?ref=pkr-github-readme>
 - Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-kit-react/issues)
 
-## Licensing
 
-- Copyright 2019 Creative Tim (https://www.creative-tim.com/?ref=pkr-github-readme)
 
-[CHANGELOG]: ./CHANGELOG.md
-[LICENSE]: ./LICENSE.md
+
+
+
+
+
+
