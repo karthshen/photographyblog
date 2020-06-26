@@ -2,8 +2,6 @@ import React, { useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import Basic from './Blur';
-//import './BlurEffect.css';
 
 function GridImageLightbox({ photos }) {
     const [currentImage, setCurrentImage] = useState(0);
@@ -12,9 +10,6 @@ function GridImageLightbox({ photos }) {
     const openLightbox = useCallback((event, { photo, index }) => {
         setCurrentImage(index);
         setViewerIsOpen(true);
-        //Basic.renderBlurView('xlight');
-        //Basic.blurType(xlight, 20);
-        Basic.setBackgroundXlight();
     }, []);
 
     const closeLightbox = () => {
