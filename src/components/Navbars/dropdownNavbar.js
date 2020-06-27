@@ -77,19 +77,19 @@ const Dropdown = ({ color }) => {
           <Nav className="mr-auto">
             <NavDropdown title="Menu" id="basic-nav-dropdown">
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Summary-Page"}>Summary</NavDropdown.Item>
-                <NavDropdown title="Pages" id="basic-nav-dropdown"> 
-                  <NavDropdown.Item href={Utility.DEFAULT_URL + "/Portrait-Page"}>Portrait</NavDropdown.Item>
-                  <NavDropdown.Item href={Utility.DEFAULT_URL + "/Landscape-Page"}>Landscape</NavDropdown.Item>
-                  <NavDropdown.Item href={Utility.DEFAULT_URL + "/Street-Page"}>Street</NavDropdown.Item>
-                  <NavDropdown.Item href={Utility.DEFAULT_URL + "/Star-Page"}>Star</NavDropdown.Item>
-                  <NavDropdown.Item href={Utility.DEFAULT_URL + "/Urban-Page"}>Urban</NavDropdown.Item>
-                  <NavDropdown.Item href={Utility.DEFAULT_URL + "/Wedding-Page"}>Wedding</NavDropdown.Item>
-                </NavDropdown>
+              <NavDropdown title="Pages" id="basic-nav-dropdown">
+                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Portrait-Page"}>Portrait</NavDropdown.Item>
+                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Landscape-Page"}>Landscape</NavDropdown.Item>
+                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Street-Page"}>Street</NavDropdown.Item>
+                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Star-Page"}>Star</NavDropdown.Item>
+                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Urban-Page"}>Urban</NavDropdown.Item>
+                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Wedding-Page"}>Wedding</NavDropdown.Item>
+              </NavDropdown>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-      <div>
-        <button
+        <div>
+          <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
               toggled: navbarCollapse
@@ -183,7 +183,7 @@ const Dropdown = ({ color }) => {
 export default function DropdownRender() {
   return (
     <>
-      <Dropdown/>
+      <Dropdown />
     </>
   );
 }

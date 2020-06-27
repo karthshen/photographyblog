@@ -23,6 +23,7 @@ import SingleImage from "components/Images/SingleImage.js";
 import SummaryPageHeader from "components/Headers/SummaryPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
+import DropdownRender from "components/Navbars/dropdownNavbar"
 
 // Pictures
 import portraitImgCover from '../../assets/img/portraits/cover.jpg'
@@ -129,7 +130,7 @@ class SummaryPage extends Component {
     render() {
         return (
             <>
-                <FrontPageNavbar />
+                <DropdownRender />
                 <SummaryPageHeader />
 
                 <div style={
