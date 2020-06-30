@@ -22,10 +22,10 @@
 import DemoFooter from "components/Footers/DemoFooter.js";
 import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
 import SummaryPageHeader from "components/Headers/SummaryPageHeader";
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import GridImageLightbox from "components/Images/GridImageLightbox";
-import * as Utility from "components/Helpers/Utility"
-
+import * as Utility from "components/Helpers/Utility";
+import DropdownRender from "components/Navbars/dropdownNavbar";
 
 class UrbanPage extends Component {
 
@@ -80,7 +80,7 @@ class UrbanPage extends Component {
 
         return (
             <>
-                <FrontPageNavbar />
+                <DropdownRender />
                 <SummaryPageHeader />
                 <div style={Utility.getGridStyle(this.state.window_maxWidth)}>
                     <GridImageLightbox photos={this.state.images} />

@@ -22,8 +22,10 @@
 import FrontPageNavbar from "components/Navbars/FrontPageNavbar.js";
 import FrontPageHeader from "components/Headers/FrontPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
+import DropdownRender from "components/Navbars/dropdownNavbar";
 
-import React, { Component } from 'react'
+
+import React, { Component } from 'react';
 
 class FrontPage extends Component {
 
@@ -53,7 +55,7 @@ class FrontPage extends Component {
   render() {
     return (
       <>
-        <FrontPageNavbar />
+        <DropdownRender />
         <FrontPageHeader />
         <div className="main">
           {/*<SectionButtons />

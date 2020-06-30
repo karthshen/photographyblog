@@ -4,7 +4,6 @@ import Popper from "popper.js";
 import classnames from "classnames";
 // reactstrap components
 import {
-  Button,
   Collapse,
   NavbarBrand,
   NavItem,
@@ -18,7 +17,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
-
+import Button from 'react-bootstrap/Button';
 
 const Dropdown = ({ color }) => {
   // dropdown props
@@ -67,25 +66,25 @@ const Dropdown = ({ color }) => {
   });
 
   //the end of FrontPageNavbar code
+  //Home used to be Simple Page of Sparks
 
   return (
     <div>
       <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
-        <Navbar.Brand href={Utility.DEFAULT_URL + "/index"}>Simple Page of Sparks</Navbar.Brand>
+        <Navbar.Brand href={Utility.DEFAULT_URL + "/index"}>Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown title="Menu" id="basic-nav-dropdown">
-              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Summary-Page"}>Summary</NavDropdown.Item>
-              <NavDropdown title="Pages" id="basic-nav-dropdown">
-                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Portrait-Page"}>Portrait</NavDropdown.Item>
-                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Landscape-Page"}>Landscape</NavDropdown.Item>
-                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Street-Page"}>Street</NavDropdown.Item>
-                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Star-Page"}>Star</NavDropdown.Item>
-                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Urban-Page"}>Urban</NavDropdown.Item>
-                <NavDropdown.Item href={Utility.DEFAULT_URL + "/Wedding-Page"}>Wedding</NavDropdown.Item>
-              </NavDropdown>
+            <NavDropdown title="Pages" id="basic-nav-dropdown">
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Summary-Page"}>Styles</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Portrait-Page"}>Portrait</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Landscape-Page"}>Landscape</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Street-Page"}>Street</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Star-Page"}>Star</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Urban-Page"}>Urban</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/Wedding-Page"}>Wedding</NavDropdown.Item>
             </NavDropdown>
+            <Button variant="transparent" href={Utility.DEFAULT_URL + "/Bookme-Page"}>Book me</Button>{' '}
           </Nav>
         </Navbar.Collapse>
         <div>
@@ -131,7 +130,7 @@ const Dropdown = ({ color }) => {
               >
                 <i className="fa nc-icon nc-badge" />
               </NavLink>
-            </NavItem>
+            </NavItem>            
             <NavItem>
               <NavLink
                 data-placement="bottom"
