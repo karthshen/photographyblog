@@ -17,7 +17,6 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
 
 const Dropdown = ({ color }) => {
   // dropdown props
@@ -34,7 +33,6 @@ const Dropdown = ({ color }) => {
     setDropdownPopoverShow(false);
   };
 
-  // FrontPageNavbar code
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -65,17 +63,15 @@ const Dropdown = ({ color }) => {
     };
   });
 
-  //the end of FrontPageNavbar code
-  //Home used to be Simple Page of Sparks
-
   return (
     <div>
       <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
-        <Navbar.Brand href={Utility.DEFAULT_URL + "/index"}>Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown title="Pages" id="basic-nav-dropdown">
+            <NavDropdown title="Menu" id="basic-nav-dropdown">
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/FrontPage"}>Home</NavDropdown.Item>
+              <NavDropdown.Item href={Utility.DEFAULT_URL + "/BookMe-Page"}>Book Me</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Summary-Page"}>Styles</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Portrait-Page"}>Portrait</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Landscape-Page"}>Landscape</NavDropdown.Item>
@@ -84,7 +80,6 @@ const Dropdown = ({ color }) => {
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Urban-Page"}>Urban</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Wedding-Page"}>Wedding</NavDropdown.Item>
             </NavDropdown>
-            <Button variant="transparent" href={Utility.DEFAULT_URL + "/Bookme-Page"}>Book me</Button>{' '}
           </Nav>
         </Navbar.Collapse>
         <div>
@@ -103,31 +98,14 @@ const Dropdown = ({ color }) => {
         <Collapse
           className="justify-content-end"
           navbar
-          isOpen={navbarCollapse}
-        >
+          isOpen={navbarCollapse}>
           <Nav navbar>
-            {/* <NavItem>
+            <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="https://twitter.com/CreativeTim?ref=creativetim"
-                target="_blank"
-                title="Follow us on Twitter"
-              >
-                <i className="fa fa-twitter" />
-                <p className="d-lg-none">Twitter</p>
-              </NavLink>
-            </NavItem> */}
-            <NavItem style={{
-              // width: '60px'
-            }}>
-              <NavLink
-                data-placement="bottom"
-                //href="https://www.facebook.com/CreativeTim?ref=creativetim"
                 target="_self"
                 title="About Me"
-                to="/Profile-Page" tag={Link}
-
-              >
+                to="/Profile-Page" tag={Link}>
                 <i className="fa nc-icon nc-badge" />
               </NavLink>
             </NavItem>            
@@ -136,8 +114,7 @@ const Dropdown = ({ color }) => {
                 data-placement="bottom"
                 href="https://www.instagram.com/karthshen/"
                 target="_blank"
-                title="Follow me on Instagram!"
-              >
+                title="Follow me on Instagram!">
                 <i className="fa fa-instagram" />
                 <p className="d-lg-none">Instagram</p>
               </NavLink>
@@ -147,8 +124,7 @@ const Dropdown = ({ color }) => {
                 data-placement="bottom"
                 href="https://github.com/karthshen/"
                 target="_blank"
-                title="Check out my Github!"
-              >
+                title="Check out my Github!">
                 <i className="fa fa-github" />
                 <p className="d-lg-none">GitHub</p>
               </NavLink>
@@ -156,22 +132,10 @@ const Dropdown = ({ color }) => {
             <NavItem>
               <NavLink
                 href="http://karthshen.github.io/"
-                target="_blank"
-              >
+                target="_blank">
                 <i className="fa nc-icon nc-book-bookmark" /> Another Simple Page
               </NavLink>
             </NavItem>
-            {/* <NavItem>
-              <Button
-                className="btn-round"
-                color="danger"
-                href="#pablo"
-                target="_blank"
-                disabled
-              >
-                Upgrade to Pro
-              </Button>
-            </NavItem> */}
           </Nav>
         </Collapse>
       </Navbar >
