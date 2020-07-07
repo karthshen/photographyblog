@@ -39,6 +39,7 @@ import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import FrontPageNavbar from "components/Navbars/FrontPageNavbar";
+import DropdownRender from "components/Navbars/dropdownNavbar";
 
 function ProfilePage() {
     const [activeTab, setActiveTab] = React.useState("1");
@@ -58,7 +59,7 @@ function ProfilePage() {
     });
     return (
         <>
-            <FrontPageNavbar />
+            <DropdownRender />
             <ProfilePageHeader />
             <div className="section profile-content">
                 <Container>
