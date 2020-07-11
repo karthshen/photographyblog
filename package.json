@@ -7,7 +7,10 @@
     "@react-native-community/blur": "github:react-native-community/react-native-blur",
     "bluroverlay.js": "^1.0.1",
     "bootstrap": "^4.5.0",
-    "classnames": "2.2.6",
+    "bootstrap-validator": "^0.11.9",
+    "classnames": "^2.2.6",
+    "final-form": "^4.20.1",
+    "final-form-focus": "^1.1.2",
     "moment": "2.24.0",
     "node-sass": "4.12.0",
     "nouislider": "13.1.5",
@@ -26,7 +29,8 @@
     "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1",
     "reactstrap": "8.0.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "validator": "^13.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

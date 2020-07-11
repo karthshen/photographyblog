@@ -108,7 +108,7 @@ const Dropdown = ({ color }) => {
                 to="/Profile-Page" tag={Link}>
                 <i className="fa nc-icon nc-badge" />
               </NavLink>
-            </NavItem>            
+            </NavItem>
             <NavItem>
               <NavLink
                 data-placement="bottom"
