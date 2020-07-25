@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const DEFAULT_URL = '';
 
@@ -81,3 +83,95 @@ export function updateWindowDimensions(state) {
     state.window_width = window.outerWidth;
     state.window_height = window.outerHeight;
 }
+
+export const USStates = [
+    { value: 'Alabama', label: 'Alabama' }, 
+    { value: 'Alaska', label: 'Alaska' },  
+    { value: 'Arizona', label: 'Arizona' },  
+    { value: 'Arkansas', label: 'Arkansas' },  
+    { value: 'California', label: 'California' },  
+    { value: 'Colorado', label: 'Colorado' },   
+    { value: 'Connecticut', label: 'Connecticut' },
+    { value: 'Delaware', label: 'Delaware' },   
+    { value: 'District Of Columbia', label: 'District Of Columbia' },   
+    { value: 'Florida', label: 'Florida' },   
+    { value: 'Georgia', label: 'Georgia' },   
+    { value: 'Hawaii', label: 'Hawaii' },   
+    { value: 'Idaho', label: 'Idaho' },   
+    { value: 'Illinois', label: 'Illinois' },   
+    { value: 'Indiana', label: 'Indiana' },   
+    { value: 'Iowa', label: 'Iowa' },   
+    { value: 'Kansas', label: 'Kansas' },      
+    { value: 'Kentucky', label: 'Kentucky' },   
+    { value: 'Louisiana', label: 'Louisiana' },   
+    { value: 'Maine', label: 'Maine' },   
+    { value: 'Maryland', label: 'Maryland' },   
+    { value: 'Massachusetts', label: 'Massachusetts' },   
+    { value: 'Michigan', label: 'Michigan' },   
+    { value: 'Minnesota', label: 'Minnesota' },   
+    { value: 'Mississippi', label: 'Mississippi' },   
+    { value: 'Missouri', label: 'Missouri' },   
+    { value: 'Montana', label: 'Montana' },   
+    { value: 'Nebraska', label: 'Nebraska' },   
+    { value: 'Nevada', label: 'Nevada' },   
+    { value: 'New Hampshire', label: 'New Hampshire' },   
+    { value: 'New Jersey', label: 'New Jersey' },   
+    { value: 'New Mexico', label: 'New Mexico' },   
+    { value: 'New York', label: 'New York' },   
+    { value: 'North Carolina', label: 'North Carolina' },  
+    { value: 'North Dakota', label: 'North Dakota' },
+    { value: 'Ohio', label: 'Ohio' },
+    { value: 'Oklahoma', label: 'Oklahoma' },
+    { value: 'Oregon', label: 'Oregon' },
+    { value: 'Pennsylvania', label: 'Pennsylvania' },
+    { value: 'Puerto Rico', label: 'Puerto Rico' },
+    { value: 'Rhode Island', label: 'Rhode Island' },
+    { value: 'South Carolina', label: 'South Carolina' },
+    { value: 'South Dakota', label: 'South Dakota' },
+    { value: 'Tennessee', label: 'Tennessee' },
+    { value: 'Texas', label: 'Texas' },
+    { value: 'Utah', label: 'Utah' },
+    { value: 'Vermont', label: 'Vermont' },
+    { value: 'Virginia', label: 'Virginia' },
+    { value: 'Washington', label: 'Washington' },
+    { value: 'West Virginia', label: 'West Virginia' },
+    { value: 'Wisconsin', label: 'Wisconsin' },
+    { value: 'Wyoming', label: 'Wyoming' }
+];
+
+export const today = new Date();
+
+export const curday = (sp) => {
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //As January is 0.
+  var yyyy = today.getFullYear();
+  
+  if(dd<10) dd='0'+dd;
+  if(mm<10) mm='0'+mm;
+  return (yyyy+"-"+mm+"-"+dd);
+  };
+  console.log(curday(''));
+
+export class Calendar extends React.Component {
+    state = {
+      startDate: new Date()
+    };
+  
+    handleChange = date => {
+      this.setState({
+        startDate: date
+      });
+    };
+  
+    render() {
+      return (
+        <DatePicker
+          selected={this.state.startDate}
+          onChange={this.handleChange}
+          minDate={today}
+          showTimeSelect
+          dateFormat="MMMM d, yyyy h:mm aa"
+        />
+      );
+    }
+  };
