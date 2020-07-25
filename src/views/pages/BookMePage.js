@@ -110,6 +110,7 @@ class BookMePage extends Component {
       // clear state and show all fields are validated
       this.setState({ ...initialState, allFieldsValidated: true });
       this.showAllFieldsValidated();
+      this.sendEmail(evt)
       window.location.pathname = "/SuccessfulSubmit-Page"
     } else {
       // update the state with errors
@@ -144,16 +145,17 @@ class BookMePage extends Component {
         left: 0,
         top: 0,
         behavior: "smooth"
-     });    
-    }
-    function sendEmail(e) {
-      emailjs.sendForm('gmail', 'Photography_Inquiry', e.target, 'user_fHhZ2ekVGcknqmHjBabXU')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
       });
     }
+  }
+
+  sendEmail(e) {
+    emailjs.sendForm('gmail', 'Photography_Inquiry', e.target, 'user_fHhZ2ekVGcknqmHjBabXU')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   }
 
   showAllFieldsValidated() {
@@ -168,9 +170,9 @@ class BookMePage extends Component {
       <>
         <DropdownRender />
         <SummaryPageHeader />
-        <form 
-          method="post" 
-          onSubmit={evt => this.handleSubmit(evt)} 
+        <form
+          method="post"
+          onSubmit={evt => this.handleSubmit(evt)}
           style={
             {
               justifyContent: "center",
@@ -182,17 +184,17 @@ class BookMePage extends Component {
               marginLeft: 'auto',
               marginRight: 'auto',
             }
-        } >
+          } >
           <Form.Row>
             <Form.Group as={Col} controlId="formGridName" onChange={evt => this.handleChange(validateFields.validateName, evt, 'name')}>
               <Form.Label>Name</Form.Label>
-              <Form.Control name="user_name" type="name" placeholder="Enter name" value={name.value} className={classnames('form-control', { 'is-valid': name.error === false }, { 'is-invalid': name.error })}/>
+              <Form.Control name="user_name" type="name" placeholder="Enter name" value={name.value} className={classnames('form-control', { 'is-valid': name.error === false }, { 'is-invalid': name.error })} />
               <div className="invalid-feedback">{name.error}</div>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridEmail" onChange={evt => this.handleChange(validateFields.validateEmail, evt, 'email')}>
               <Form.Label>Email</Form.Label>
-              <Form.Control name="user_email" type="email" placeholder="Enter email" value={email.value} className={classnames('form-control', { 'is-valid': email.error === false }, { 'is-invalid': email.error })}/>
+              <Form.Control name="user_email" type="email" placeholder="Enter email" value={email.value} className={classnames('form-control', { 'is-valid': email.error === false }, { 'is-invalid': email.error })} />
               <div className="invalid-feedback">{email.error}</div>
             </Form.Group>
           </Form.Row>
@@ -200,18 +202,18 @@ class BookMePage extends Component {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPhone" onChange={evt => this.handleChange(validateFields.validatephone, evt, 'phone')}>
               <Form.Label>Phone Number</Form.Label>
-              <Form.Control name="user_phone" type="phone number" placeholder="Enter phone number" value={phone.value} className={classnames('form-control', { 'is-valid': phone.error === false }, { 'is-invalid': phone.error })}/>
+              <Form.Control name="user_phone" type="phone number" placeholder="Enter phone number" value={phone.value} className={classnames('form-control', { 'is-valid': phone.error === false }, { 'is-invalid': phone.error })} />
               <div className="invalid-feedback">{phone.error}</div>
             </Form.Group>
-          
-          
+
+
             <Form.Group as={Col} controlId="formGridDate" onChange={evt => this.handleChange(validateFields.validateDate, evt, 'date')}>
               <Form.Label>Event Date</Form.Label>
               <br></br>
-              <Form.Control 
+              <Form.Control
                 type="date"
                 name="event_date"
-                value={date.value} 
+                value={date.value}
                 className={classnames('form-control', { 'is-valid': date.error === false }, { 'is-invalid': date.error })}
               />
               <div className="invalid-feedback">{date.error}</div>
@@ -231,17 +233,17 @@ class BookMePage extends Component {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Event City</Form.Label>
-              <Form.Control name="event_city"/>
+              <Form.Control name="event_city" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Event State</Form.Label>
-              <Select name="event_state" options = {USStates} />
+              <Select name="event_state" options={USStates} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridZip" onChange={evt => this.handleChange(validateFields.validateZip, evt, 'zip')}>
               <Form.Label>Event Zip</Form.Label>
-              <Form.Control name="event_zip" value={zip.value} className={classnames('form-control', { 'is-valid': zip.error === false }, { 'is-invalid': zip.error })}/>
+              <Form.Control name="event_zip" value={zip.value} className={classnames('form-control', { 'is-valid': zip.error === false }, { 'is-invalid': zip.error })} />
               <div className="invalid-feedback">{zip.error}</div>
             </Form.Group>
           </Form.Row>
@@ -260,7 +262,7 @@ class BookMePage extends Component {
           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
           <script type="text/javascript">
             (function(){
-                emailjs.init("user_fHhZ2ekVGcknqmHjBabXU")};
+              emailjs.init("user_fHhZ2ekVGcknqmHjBabXU")};
             )();
         </script>
         </form>
