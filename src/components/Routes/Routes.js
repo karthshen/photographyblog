@@ -13,6 +13,7 @@ import WeddingPage from 'views/pages/WeddingPage'
 import ProfilePage from 'views/pages/ProfilePage'
 import BookMePage from 'views/pages/BookMePage'
 import SuccessfulSubmitPage from 'views/pages/SuccessfulSubmitPage'
+import FailureSubmitPage from 'views/pages/FailureSubmitPage'
 
 import * as Utility from 'components/Helpers/Utility'
 
@@ -25,6 +26,7 @@ export default class Routes extends Component {
                     <Route path={Utility.DEFAULT_URL + "/FrontPage"} exact component={FrontPage} />
                     <Route path={Utility.DEFAULT_URL + '/BookMe-Page'} component={BookMePage} />
                     <Route path={Utility.DEFAULT_URL + '/SuccessfulSubmit-Page'} component={SuccessfulSubmitPage} />
+                    <Route path={Utility.DEFAULT_URL + '/FailureSubmit-Page'} component={FailureSubmitPage} />
                     <Route path={Utility.DEFAULT_URL + "/Portrait-Page"} component={Portrait} />
                     <Route path={Utility.DEFAULT_URL + "/Summary-Page"} component={SummaryPage} />
                     <Route path={Utility.DEFAULT_URL + "/Landscape-Page"} component={LandscapePage} />

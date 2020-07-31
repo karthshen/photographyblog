@@ -71,7 +71,6 @@ const Dropdown = ({ color }) => {
           <Nav className="mr-auto">
             <NavDropdown title="Menu" id="basic-nav-dropdown">
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/FrontPage"}>Home</NavDropdown.Item>
-              <NavDropdown.Item href={Utility.DEFAULT_URL + "/BookMe-Page"}>Book Me</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Summary-Page"}>Styles</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Portrait-Page"}>Portrait</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Landscape-Page"}>Landscape</NavDropdown.Item>
@@ -80,6 +79,14 @@ const Dropdown = ({ color }) => {
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Urban-Page"}>Urban</NavDropdown.Item>
               <NavDropdown.Item href={Utility.DEFAULT_URL + "/Wedding-Page"}>Wedding</NavDropdown.Item>
             </NavDropdown>
+            <NavItem>
+              <NavLink
+                href={Utility.DEFAULT_URL + "/BookMe-Page"}
+                target="_self"
+                title="Book Me">
+                Book Me
+              </NavLink>
+            </NavItem>
           </Nav>
         </Navbar.Collapse>
         <div>

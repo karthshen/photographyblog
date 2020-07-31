@@ -26,7 +26,7 @@ class ValidateFields {
   validateName(name) {
     if (validator.isEmpty(name)) {
       return 'Name is required';
-    } else if (!validator.isLength(name, { min: 2 })) {
+    } else if (!validator.isLength(name, { min: 1 })) {
       return 'Name should be minimum 2 characters';
     }
     return false;

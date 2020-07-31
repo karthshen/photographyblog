@@ -10,6 +10,7 @@ import Form from 'react-bootstrap/Form';
 import { Col, Row } from "react-bootstrap";
 import Select from 'react-select';
 import emailjs from 'emailjs-com';
+import 'components/Helpers/calendar-picker-indicator.css';
 
 const initialState = {
   email: {
@@ -110,8 +111,12 @@ class BookMePage extends Component {
       // clear state and show all fields are validated
       this.setState({ ...initialState, allFieldsValidated: true });
       this.showAllFieldsValidated();
-      this.sendEmail(evt)
-      window.location.pathname = "/SuccessfulSubmit-Page"
+      this.sendEmail(evt);
+      if(this.sendEmail.isSuccess = true){
+        window.location.pathname = "/SuccessfulSubmit-Page";
+      } else {
+        window.location.pathname = "/FailureSubmit-Page";
+      }
     } else {
       // update the state with errors
       this.setState(state => ({
@@ -150,12 +155,18 @@ class BookMePage extends Component {
   }
 
   sendEmail(e) {
+    let isSuccess = false;
+
     emailjs.sendForm('gmail', 'Photography_Inquiry', e.target, 'user_fHhZ2ekVGcknqmHjBabXU')
       .then((result) => {
         console.log(result.text);
+        isSuccess = true;
       }, (error) => {
         console.log(error.text);
+        isSuccess = false;
       });
+
+      return isSuccess
   }
 
   showAllFieldsValidated() {
@@ -243,7 +254,7 @@ class BookMePage extends Component {
 
             <Form.Group as={Col} controlId="formGridZip" onChange={evt => this.handleChange(validateFields.validateZip, evt, 'zip')}>
               <Form.Label>Event Zip</Form.Label>
-              <Form.Control name="event_zip" value={zip.value} className={classnames('form-control', { 'is-valid': zip.error === false }, { 'is-invalid': zip.error })} />
+              <Form.Control name="event_zip" type="zip code" value={zip.value} className={classnames('form-control', { 'is-valid': zip.error === false }, { 'is-invalid': zip.error })} />
               <div className="invalid-feedback">{zip.error}</div>
             </Form.Group>
           </Form.Row>

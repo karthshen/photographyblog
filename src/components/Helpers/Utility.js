@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 export const DEFAULT_URL = '';
 
@@ -138,40 +136,3 @@ export const USStates = [
     { value: 'Wisconsin', label: 'Wisconsin' },
     { value: 'Wyoming', label: 'Wyoming' }
 ];
-
-export const today = new Date();
-
-export const curday = (sp) => {
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; //As January is 0.
-  var yyyy = today.getFullYear();
-  
-  if(dd<10) dd='0'+dd;
-  if(mm<10) mm='0'+mm;
-  return (yyyy+"-"+mm+"-"+dd);
-  };
-  console.log(curday(''));
-
-export class Calendar extends React.Component {
-    state = {
-      startDate: new Date()
-    };
-  
-    handleChange = date => {
-      this.setState({
-        startDate: date
-      });
-    };
-  
-    render() {
-      return (
-        <DatePicker
-          selected={this.state.startDate}
-          onChange={this.handleChange}
-          minDate={today}
-          showTimeSelect
-          dateFormat="MMMM d, yyyy h:mm aa"
-        />
-      );
-    }
-  };
