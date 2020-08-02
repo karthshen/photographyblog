@@ -94,7 +94,7 @@ class BookMePage extends Component {
    * check if all fields are valid if yes then submit the Form
    * otherwise set errors for the feilds in the state
    */
-  handleSubmit(evt) {
+  async handleSubmit(evt) {
     evt.preventDefault();
     // validate all fields
     const { email, name, date, zip, phone } = this.state;
@@ -111,8 +111,8 @@ class BookMePage extends Component {
       // clear state and show all fields are validated
       this.setState({ ...initialState, allFieldsValidated: true });
       this.showAllFieldsValidated();
-      this.sendEmail(evt);
-      if(this.sendEmail.isSuccess = true){
+
+      if (await this.sendEmail(evt)) {
         window.location.pathname = "/SuccessfulSubmit-Page";
       } else {
         window.location.pathname = "/FailureSubmit-Page";
@@ -154,19 +154,23 @@ class BookMePage extends Component {
     }
   }
 
-  sendEmail(e) {
+  async sendEmail(e) {
     let isSuccess = false;
 
-    emailjs.sendForm('gmail', 'Photography_Inquiry', e.target, 'user_fHhZ2ekVGcknqmHjBabXU')
+    await emailjs.sendForm('gmail', 'Photography_Inquiry', e.target, 'user_fHhZ2ekVGcknqmHjBabXU')
       .then((result) => {
+        console.log("email sent successfully");
+        console.log(result)
         console.log(result.text);
         isSuccess = true;
       }, (error) => {
+        console.log("email sent unsuccessfully");
+        console.log(error)
         console.log(error.text);
         isSuccess = false;
       });
 
-      return isSuccess
+    return isSuccess
   }
 
   showAllFieldsValidated() {
