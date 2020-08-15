@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import validator from 'validator';
 
 /*
@@ -25,8 +26,36 @@ class ValidateFields {
   validateName(name) {
     if (validator.isEmpty(name)) {
       return 'Name is required';
-    } else if (!validator.isLength(name, { min: 2 })) {
+    } else if (!validator.isLength(name, { min: 1 })) {
       return 'Name should be minimum 2 characters';
+    }
+    return false;
+  }
+
+  validateDate(date) {
+    if (validator.isEmpty(date)) {
+      return 'Date is required';
+    } else if (!validator.isAfter(date)) {
+      return 'Future date is required';
+    } else {
+      return false;
+    }
+  }
+
+  validateZip(zip) {
+    if (validator.isEmpty(zip)) {
+      return 'Zip code is required';
+    } else if (!validator.isPostalCode(zip, 'US')) {
+      return 'Invalid zip code';
+    }
+    return false;
+  }
+
+  validatePhone(phone) {
+    if (validator.isEmpty(phone)) {
+      return 'Phone number is required';
+    } else if (!validator.isMobilePhone(phone, 'en-US')) {
+      return 'Invalid phone number';
     }
     return false;
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Utility from 'components/Helpers/Utility';
+import { USStates } from 'components/Helpers/Utility';
 import { validateFields } from 'components/Helpers/Validation';
 import classnames from 'classnames';
 import SummaryPageHeader from "components/Headers/SummaryPageHeader.js";
@@ -7,6 +8,9 @@ import DropdownRender from "components/Navbars/dropdownNavbar";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Col, Row } from "react-bootstrap";
+import Select from 'react-select';
+import emailjs from 'emailjs-com';
+import 'components/Helpers/calendar-picker-indicator.css';
 
 const initialState = {
   email: {
@@ -15,6 +19,21 @@ const initialState = {
     error: ''
   },
   name: {
+    value: '',
+    validateOnChange: false,
+    error: ''
+  },
+  date: {
+    value: '',
+    validateOnChange: false,
+    error: ''
+  },
+  zip: {
+    value: '',
+    validateOnChange: false,
+    error: ''
+  },
+  phone: {
     value: '',
     validateOnChange: false,
     error: ''
@@ -75,20 +94,29 @@ class BookMePage extends Component {
    * check if all fields are valid if yes then submit the Form
    * otherwise set errors for the feilds in the state
    */
-  handleSubmit(evt) {
+  async handleSubmit(evt) {
     evt.preventDefault();
     // validate all fields
-    const { email, name } = this.state;
+    const { email, name, date, zip, phone } = this.state;
     const emailError = validateFields.validateEmail(email.value);
     const nameError = validateFields.validateName(name.value);
-    if ([emailError, nameError].every(e => e === false)) {
+    const dateError = validateFields.validateDate(date.value);
+    const zipError = validateFields.validateZip(zip.value);
+    const phoneError = validateFields.validatePhone(phone.value);
+
+    if ([emailError, nameError, dateError, zipError, phoneError].every(e => e === false)) {
       // no errors submit the form
       console.log('success');
 
       // clear state and show all fields are validated
       this.setState({ ...initialState, allFieldsValidated: true });
       this.showAllFieldsValidated();
-      window.location.pathname = "/SuccessfulSubmit-Page"
+
+      if (await this.sendEmail(evt)) {
+        window.location.pathname = "/SuccessfulSubmit-Page";
+      } else {
+        window.location.pathname = "/FailureSubmit-Page";
+      }
     } else {
       // update the state with errors
       this.setState(state => ({
@@ -101,13 +129,48 @@ class BookMePage extends Component {
           ...state.name,
           validateOnChange: true,
           error: nameError
+        },
+        date: {
+          ...state.date,
+          validateOnChange: true,
+          error: dateError
+        },
+        zip: {
+          ...state.zip,
+          validateOnChange: true,
+          error: zipError
+        },
+        phone: {
+          ...state.phone,
+          validateOnChange: true,
+          error: phoneError
         }
       }));
       window.scroll({
         left: 0,
         top: 0,
         behavior: "smooth"
-     });    }
+      });
+    }
+  }
+
+  async sendEmail(e) {
+    let isSuccess = false;
+
+    await emailjs.sendForm('gmail', 'Photography_Inquiry', e.target, 'user_fHhZ2ekVGcknqmHjBabXU')
+      .then((result) => {
+        console.log("email sent successfully");
+        console.log(result)
+        console.log(result.text);
+        isSuccess = true;
+      }, (error) => {
+        console.log("email sent unsuccessfully");
+        console.log(error)
+        console.log(error.text);
+        isSuccess = false;
+      });
+
+    return isSuccess
   }
 
   showAllFieldsValidated() {
@@ -117,141 +180,106 @@ class BookMePage extends Component {
   }
 
   render() {
-    const { email, name, allFieldsValidated } = this.state;
+    const { email, name, date, zip, phone, allFieldsValidated } = this.state;
     return (
       <>
         <DropdownRender />
         <SummaryPageHeader />
-        <form action="https://formspree.io/cody.nelson4@yahoo.com" method="post" onSubmit={evt => this.handleSubmit(evt)} style={
-          {
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "10px",
-            position: "relative",
-            alignSelf: 'center',
-            maxWidth: '80%',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }
-        } >
-
+        <form
+          method="post"
+          onSubmit={evt => this.handleSubmit(evt)}
+          style={
+            {
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "10px",
+              position: "relative",
+              alignSelf: 'center',
+              maxWidth: '80%',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }
+          } >
           <Form.Row>
             <Form.Group as={Col} controlId="formGridName" onChange={evt => this.handleChange(validateFields.validateName, evt, 'name')}>
               <Form.Label>Name</Form.Label>
-              <Form.Control type="name" placeholder="Enter name" value={name.value} className={classnames('form-control', { 'is-valid': name.error === false }, { 'is-invalid': name.error })}/>
+              <Form.Control name="user_name" type="name" placeholder="Enter name" value={name.value} className={classnames('form-control', { 'is-valid': name.error === false }, { 'is-invalid': name.error })} />
               <div className="invalid-feedback">{name.error}</div>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridEmail" onChange={evt => this.handleChange(validateFields.validateEmail, evt, 'email')}>
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" value={email.value} className={classnames('form-control', { 'is-valid': email.error === false }, { 'is-invalid': email.error })}/>
+              <Form.Control name="user_email" type="email" placeholder="Enter email" value={email.value} className={classnames('form-control', { 'is-valid': email.error === false }, { 'is-invalid': email.error })} />
               <div className="invalid-feedback">{email.error}</div>
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPhone">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control type="phone number" placeholder="Enter phone number" />
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridDate">
+            <Form.Group as={Col} controlId="formGridPhone" onChange={evt => this.handleChange(validateFields.validatephone, evt, 'phone')}>
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control name="user_phone" type="phone number" placeholder="Enter phone number" value={phone.value} className={classnames('form-control', { 'is-valid': phone.error === false }, { 'is-invalid': phone.error })} />
+              <div className="invalid-feedback">{phone.error}</div>
+            </Form.Group>
+
+
+            <Form.Group as={Col} controlId="formGridDate" onChange={evt => this.handleChange(validateFields.validateDate, evt, 'date')}>
               <Form.Label>Event Date</Form.Label>
-              <Form.Control type="event date" placeholder="Enter event date" />
+              <br></br>
+              <Form.Control
+                type="date"
+                name="event_date"
+                value={date.value}
+                className={classnames('form-control', { 'is-valid': date.error === false }, { 'is-invalid': date.error })}
+              />
+              <div className="invalid-feedback">{date.error}</div>
             </Form.Group>
           </Form.Row>
 
           <Form.Group controlId="formGridAddress1">
             <Form.Label>Event Address</Form.Label>
-            <Form.Control placeholder="1234 Main St" />
+            <Form.Control name="event_address1" placeholder="1234 Main St" />
           </Form.Group>
 
           <Form.Group controlId="formGridAddress2">
             <Form.Label>Event Address 2</Form.Label>
-            <Form.Control placeholder="Apartment, studio, or floor" />
+            <Form.Control name="event_address2" placeholder="Apartment, studio, or floor" />
           </Form.Group>
 
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Event City</Form.Label>
-              <Form.Control />
+              <Form.Control name="event_city" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Event State</Form.Label>
-              <Form.Control as="select" defaultValue="Choose...">
-                <option>Choose...</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-              </Form.Control >
+              <Select name="event_state" options={USStates} />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
+            <Form.Group as={Col} controlId="formGridZip" onChange={evt => this.handleChange(validateFields.validateZip, evt, 'zip')}>
               <Form.Label>Event Zip</Form.Label>
-              <Form.Control />
+              <Form.Control name="event_zip" type="zip code" value={zip.value} className={classnames('form-control', { 'is-valid': zip.error === false }, { 'is-invalid': zip.error })} />
+              <div className="invalid-feedback">{zip.error}</div>
             </Form.Group>
           </Form.Row>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Event Description</Form.Label>
-            <Form.Control as="textarea" rows="3" />
+            <Form.Control name="event_description" as="textarea" rows="3" />
           </Form.Group>
 
           <Form.Group controlId="exampleForm.ControlTextarea2">
             <Form.Label>Anything Else You'd Like Me To Know?</Form.Label>
-            <Form.Control as="textarea" rows="3" />
+            <Form.Control name="event_message" as="textarea" rows="3" />
           </Form.Group>
 
-          <Button type="submit" variant="transparent" onMouseDown={() => this.setState({ submitCalled: true })}>Submit</Button>
+          <Button type="submit" value="Send" variant="transparent" onMouseDown={() => this.setState({ submitCalled: true })}>Submit</Button>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+          <script type="text/javascript">
+            (function(){
+              emailjs.init("user_fHhZ2ekVGcknqmHjBabXU")};
+            )();
+        </script>
         </form>
       </>
     );
