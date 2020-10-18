@@ -2,7 +2,6 @@
   "name": "paper-kit-react",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://karthshen.github.io/photographyblog/",
   "dependencies": {
     "@react-native-community/blur": "github:react-native-community/react-native-blur",
     "bluroverlay.js": "^1.0.1",
@@ -51,8 +50,7 @@
     "compile-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.css",
     "minify-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.min.css --output-style compressed",
     "map-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.css --source-map true",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "rm -rf build && npm run build && aws s3 sync build/ s3://shenphotography.net --acl public-read"
   },
   "eslintConfig": {
     "extends": "react-app"
